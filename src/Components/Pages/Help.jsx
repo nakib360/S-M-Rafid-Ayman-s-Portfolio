@@ -7,10 +7,9 @@ const Help = () => {
         "Improving visual clarity and audience engagement."
     ];
     return (
-        <div className=" px-6 font-sans">
+        <div className=" px-6">
             <div className="max-w-7xl mx-auto text-center mb-16">
-                {/* Glowing Header */}
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[#c084fc] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6">
                     What I Can Help You With?
                 </h2>
                 <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">

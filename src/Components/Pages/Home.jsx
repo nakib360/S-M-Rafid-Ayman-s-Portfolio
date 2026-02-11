@@ -58,15 +58,19 @@ const Home = () => {
           <img className="rounded-2xl" src={smRafidAymanJpg} alt="S M Rafid Ayman" />
         </div>
         <div className="max-w-3xl mt-20 md:space-y-4">
-          <p className="text-purple-600 font-bold text-2xl md:text-4xl">About me</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-purple-800 drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
+            About me
+          </h2>
           <p className=" md:text-xl">I am S M Rafid Ayman, a creative Graphic Designer with a strong focus on modern, clean, and effective visual design. Based in Chattogram, Bangladesh, I work with clients to create impactful designs that strengthen brand identity and improve digital presence. Alongside client work, I continuously refine my skills to stay aligned with current design trends and industry standards. </p>
         </div>
       </div>
 
       <div>
-        <div className="min-h-screen text-white py-16 px-4 font-sans">
+        <div className="min-h-screen text-white py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl text-purple-600 font-bold text-center mb-12">View My Portfolio</h2>
+            <h2 className="text-3xl md:text-4xl text-center font-extrabold text-purple-800 drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
+              View My Portfolio
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {portfolioItems.map((item, index) => (

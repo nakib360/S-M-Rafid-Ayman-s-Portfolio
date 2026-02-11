@@ -58,10 +58,9 @@ const Reviews = () => {
 
     return (
         <div>
-            <div className=" px-6 min-h-screen font-sans">
+            <div className=" px-6 min-h-screen">
                 <div className="max-w-7xl mx-auto text-center mb-16">
-                    {/* Glowing Header */}
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-[#c084fc] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
                         Client Success Stories
                     </h2>
                     <p className="text-gray-400 text-lg">

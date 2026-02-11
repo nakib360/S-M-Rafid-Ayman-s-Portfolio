@@ -35,10 +35,9 @@ const processes = [
 
 const Philosophy = () => {
   return (
-    <div className=" px-6 font-sans text-white">
+    <div className=" px-6 text-white">
       <div className="max-w-7xl mx-auto text-center mb-16">
-        {/* Title with subtle glow */}
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight shadow-purple-500/20">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6">
           My Design Process
         </h2>
         <p className="text-gray-400 text-lg">
@@ -48,7 +47,7 @@ const Philosophy = () => {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {processes.map((item) => (
-          <div 
+          <div
             key={item.id}
             className="bg-[#130b25] border border-gray-800 rounded-2xl p-8 hover:border-purple-500/40 transition-all duration-300 group"
           >
