@@ -14,12 +14,13 @@ const About = () => {
         }
     ];
     return (
-        <div className="px-6 font-sans text-white pb-20">
+        <div className="px-6 text-white pb-20">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}
                 <div className="mb-12">
-                    <h2 className="text-5xl md:text-6xl font-extrabold mb-4">About Me</h2>
+                    <h2 className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6">
+                        About Me                    </h2>
                     <div className="w-24 h-1.5 bg-[#9333ea] rounded-full shadow-[0_0_15px_rgba(147,51,234,0.6)]"></div>
                 </div>
 
