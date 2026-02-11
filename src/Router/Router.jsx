@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import Main from "../Components/Main";
 import Home from "../Components/Pages/Home";
+import Reviews from "../Components/Pages/Reviews";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/reviews",
-                element: <p>"All Client Reviews"</p>,
+                element: <Reviews/>,
             },
             {
                 path: "/help",
