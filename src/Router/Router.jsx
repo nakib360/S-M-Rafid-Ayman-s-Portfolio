@@ -3,6 +3,7 @@ import Main from "../Components/Main";
 import Home from "../Components/Pages/Home";
 import Reviews from "../Components/Pages/Reviews";
 import Help from "../Components/Pages/Help";
+import Philosophy from "../Components/Pages/Philosophy";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/philosophy",
-                element: <p>"My Design Philosophy"</p>,
+                element: <Philosophy/>,
             },
             {
                 path: "/contact",
