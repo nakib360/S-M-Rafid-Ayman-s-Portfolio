@@ -5,6 +5,7 @@ import Reviews from "../Components/Pages/Reviews";
 import Help from "../Components/Pages/Help";
 import Philosophy from "../Components/Pages/Philosophy";
 import Contact from "../Components/Pages/Contact";
+import About from "../Components/Pages/About";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/About",
-                element: <p>"About Me"</p>,
+                element: <About/>,
             }
         ]
     }
