@@ -4,6 +4,7 @@ import Home from "../Components/Pages/Home";
 import Reviews from "../Components/Pages/Reviews";
 import Help from "../Components/Pages/Help";
 import Philosophy from "../Components/Pages/Philosophy";
+import Contact from "../Components/Pages/Contact";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/contact",
-                element: <p>"Contact"</p>,
+                element: <Contact/>,
             },
             {
                 path: "/About",
