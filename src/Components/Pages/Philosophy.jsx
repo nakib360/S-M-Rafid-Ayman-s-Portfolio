@@ -1,4 +1,5 @@
-import React from 'react';
+// eslint-disable-next-line
+import { AnimatePresence, motion } from "framer-motion";
 
 const processes = [
   {
@@ -35,21 +36,41 @@ const processes = [
 
 const Philosophy = () => {
   return (
-    <div className=" px-6 text-white">
+    <div className="px-6 text-white">
+      {/* Section Heading */}
       <div className="max-w-7xl mx-auto text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6">
+        <motion.h2
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6"
+        >
           My Design Process
-        </h2>
-        <p className="text-gray-400 text-lg">
+        </motion.h2>
+        <motion.p
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+          className="text-gray-400 text-lg"
+        >
           A clear, structured workflow that ensures every project delivers real impact.
-        </p>
+        </motion.p>
       </div>
 
+      {/* Process Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {processes.map((item) => (
-          <div
+        {processes.map((item, index) => (
+          <motion.div
             key={item.id}
-            className="bg-[#130b25] border border-gray-800 rounded-2xl p-8 hover:border-purple-500/40 transition-all duration-300 group"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+            whileHover={{
+              y: -5,
+              boxShadow: "0px 8px 30px rgba(147,51,234,0.3)",
+              transition: { duration: 0.2 },
+            }}
+            className="bg-[#130b25] border border-gray-800 rounded-2xl p-8 hover:border-purple-500/40"
           >
             <div className="flex items-center gap-2 mb-4">
               <span className="text-[#9333ea] font-bold text-lg">{item.id}</span>
@@ -61,10 +82,12 @@ const Philosophy = () => {
             <p className="text-gray-300 text-lg leading-relaxed">
               {item.description}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
+
+
   );
 };
 

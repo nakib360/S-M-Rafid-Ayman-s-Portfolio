@@ -15,16 +15,16 @@ const Header = () => {
     { name: "About Me", path: "/About" }
   ]
   return (
-    <div className="p-5 md:px-10 bg-[#28518A] rounded-2xl flex-row-reverse md:flex-row flex justify-between transition-all shadow-xl ">
+    <motion.div initial={{scaleX: 0}} animate={{scaleX: 1}} style={{originX: 0.5}} transition={{ease: "easeInOut"}} className="p-5 md:px-10 bg-[#28518A] rounded-2xl flex-row-reverse md:flex-row flex justify-between transition-all shadow-xl ">
       <div className="w-1/12">
-        <div className="inline text-white bg-gray-500 rounded-full p-1 text-sm">
+        <motion.div initial={{y: 2, opacity: 0}} animate={{y: -2, opacity: 1}} transition={{delay: 1}} className="inline text-white bg-gray-500 rounded-full p-1 text-sm">
           SM
-        </div>
+        </motion.div>
       </div>
       <div className="hidden md:flex justify-between items-center text-sm w-9/12">
         {
           nav.map((navItem, id) => (
-            <div key={id}>
+            <motion.div initial={{y: 2, opacity: 0}} animate={{y: -2, opacity: 1}} transition={{delay: 1}} key={id}>
               <NavLink className={({ isActive }) => [
                 "relative pb-0.5",
                 "before:content-[''] before:absolute before:left-0 before:-bottom-0.5",
@@ -33,7 +33,7 @@ const Header = () => {
                 "hover:before:scale-x-100",
                 isActive ? "before:scale-x-100 text-yellow-400 transition-all" : "text-white transition-all",
               ].join(" ")} to={navItem.path} >{navItem.name}</NavLink>
-            </div>
+            </motion.div>
           ))
         }
       </div>
@@ -73,7 +73,7 @@ const Header = () => {
           </AnimatePresence>
         </div>
       </div>
-    </div >
+    </motion.div >
   );
 };
 
