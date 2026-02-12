@@ -47,7 +47,36 @@ const Home = () => {
       <div className="flex flex-col-reverse md:flex-row justify-around items-center ">
         <motion.div initial={{ x: -50, y: 50, opacity: 0 }} whileInView={{ x: 0, y: 0, opacity: 1 }} transition={{ duration: 1 }} className="md:space-y-2 text-right -mt-10 md:mt-0 md:text-left">
           <p className="text-2xl md:text-3xl lg:text-4xl text-yellow-100">Assalamu Alaikum</p>
-          <p className="text-3xl md:text-4xl lg:text-5xl text-purple-600">I am S M Rafid Ayman</p>
+          <p className="text-3xl md:text-4xl lg:text-5xl text-purple-600 font-bold">I am{" "}
+            <div className="relative inline-block font-extrabold">
+              <motion.span
+                className="relative"
+                initial={{ y: 0 }}
+                whileHover={{ y: [-2, 2, -1, 1, 0] }}
+                transition={{ duration: 0.3, repeat: Infinity }}
+              >
+                 S M Rafid Ayman
+              </motion.span>
+
+              <motion.span
+                className="absolute top-0 left-0 text-red-500 mix-blend-screen"
+                initial={{ x: 0, y: 0, opacity: 0.7 }}
+                animate={{ x: [0, 2, -2, 1, 0], y: [0, -1, 1, -2, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                S M Rafid Ayman
+              </motion.span>
+
+              <motion.span
+                className="absolute top-0 left-0 text-blue-500 mix-blend-screen"
+                initial={{ x: 0, y: 0, opacity: 0.7 }}
+                animate={{ x: [0, -2, 2, -1, 0], y: [0, 1, -1, 2, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                S M Rafid Ayman
+              </motion.span>
+            </div>
+          </p>
           <p className="md:text-xl lg:text-2xl">From <span className="italic text-gray-300">Chattogram, Bangladesh</span></p>
         </motion.div>
 
@@ -76,37 +105,37 @@ const Home = () => {
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {portfolioItems.map((item, index) => (
-    <motion.div
-      key={index}
-      initial={{ y: 50, opacity: 0 }} // scroll start
-      whileInView={{ y: 0, opacity: 1 }} // scroll reveal
-      transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} // stagger
-      whileHover={{
-        y: -5,
-        boxShadow: "0px 8px 30px rgba(40,81,138,0.5)",
-        transition: { duration: 0.2 },
-      }}
-      className="bg-[#0f0a1a] border border-purple-900/30 rounded-3xl p-8 flex flex-col items-center text-center group"
-    >
-      {/* Icon Container with Glow */}
-      <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(147,51,234,0.5)]">
-        <span className="text-2xl text-white">{item.icon}</span>
-      </div>
+              {portfolioItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ y: 50, opacity: 0 }} // scroll start
+                  whileInView={{ y: 0, opacity: 1 }} // scroll reveal
+                  transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} // stagger
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0px 8px 30px rgba(40,81,138,0.5)",
+                    transition: { duration: 0.2 },
+                  }}
+                  className="bg-[#0f0a1a] border border-purple-900/30 rounded-3xl p-8 flex flex-col items-center text-center group"
+                >
+                  {/* Icon Container with Glow */}
+                  <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(147,51,234,0.5)]">
+                    <span className="text-2xl text-white">{item.icon}</span>
+                  </div>
 
-      <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
 
-      <p className="text-gray-400 text-sm leading-relaxed mb-8 min-h-15">
-        {item.desc}
-      </p>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-8 min-h-15">
+                    {item.desc}
+                  </p>
 
-      {/* Button with Inner Glow */}
-      <button className="bg-purple-600 hover:bg-purple-500 text-white font-semibold py-3 px-8 rounded-full flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(147,51,234,0.4)]">
-        View Work <span>→</span>
-      </button>
-    </motion.div>
-  ))}
-</div>
+                  {/* Button with Inner Glow */}
+                  <button className="bg-purple-600 hover:bg-purple-500 text-white font-semibold py-3 px-8 rounded-full flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(147,51,234,0.4)]">
+                    View Work <span>→</span>
+                  </button>
+                </motion.div>
+              ))}
+            </div>
 
 
           </div>
