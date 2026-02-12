@@ -4,6 +4,7 @@ import { FaLink, FaLayerGroup, FaRegBookmark, FaPrint } from 'react-icons/fa';
 import { LuSparkles } from 'react-icons/lu';
 import { MdOutlinePhotoSizeSelectActual } from 'react-icons/md';
 import { HiArrowNarrowRight } from 'react-icons/hi';
+import { NavLink } from "react-router";
 
 // eslint-disable-next-line
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,31 +16,37 @@ const Home = () => {
       title: "Social Media Design",
       desc: "Scroll-stopping visuals designed to elevate brand presence and engagement.",
       icon: <FaLink size={28} />,
+      path: "/SocialMediaDesign"
     },
     {
       title: "Logo Design",
       desc: "Strong, timeless logos built to represent your brand with confidence.",
       icon: <FaLayerGroup size={28} />,
+      path: "/LogoDesign"
     },
     {
       title: "Cover Design",
       desc: "Eye-catching covers designed to instantly grab attention.",
       icon: <FaRegBookmark size={28} />,
+      path: "/CoverDesign"
     },
     {
       title: "Thumbnail Design",
       desc: "High-impact thumbnails optimized for clicks and visibility.",
       icon: <MdOutlinePhotoSizeSelectActual size={30} />,
+      path: "/ThumbnailDesign"
     },
     {
       title: "Print Design",
       desc: "Clean and professional print materials that communicate clearly.",
       icon: <FaPrint size={26} />,
+      path: "/PrintDesign"
     },
     {
       title: "Manipulation Design",
       desc: "Creative photo manipulation to bring bold ideas to life.",
       icon: <LuSparkles size={30} />,
+      path: "/ManipulationDesign"
     },
   ];
   return (
@@ -108,9 +115,9 @@ const Home = () => {
               {portfolioItems.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ y: 50, opacity: 0 }} // scroll start
-                  whileInView={{ y: 0, opacity: 1 }} // scroll reveal
-                  transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} // stagger
+                  initial={{ y: 50, opacity: 0 }} 
+                  whileInView={{ y: 0, opacity: 1 }} 
+                  transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} 
                   whileHover={{
                     y: -5,
                     boxShadow: "0px 8px 30px rgba(40,81,138,0.5)",
@@ -123,16 +130,16 @@ const Home = () => {
                     <span className="text-2xl text-white">{item.icon}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                  <h3  className="text-xl font-bold mb-4">{item.title}</h3>
 
                   <p className="text-gray-400 text-sm leading-relaxed mb-8 min-h-15">
                     {item.desc}
                   </p>
 
                   {/* Button with Inner Glow */}
-                  <button className="bg-purple-600 hover:bg-purple-500 text-white font-semibold py-3 px-8 rounded-full flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(147,51,234,0.4)]">
+                  <NavLink to={item.path} className="bg-purple-600 hover:bg-purple-500 text-white font-semibold py-3 px-8 rounded-full flex items-center gap-2 transition-all shadow-[0_0_15px_rgba(147,51,234,0.4)]">
                     View Work <span>→</span>
-                  </button>
+                  </NavLink>
                 </motion.div>
               ))}
             </div>
