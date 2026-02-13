@@ -1,7 +1,61 @@
+import { useState } from "react";
 // eslint-disable-next-line
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    budget: "",
+    address: "",
+    projectDetails: "",
+    isReviewed: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const payload = {
+      ...formData,
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL || "";
+      const response = await fetch(`${baseUrl}/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send order");
+      }
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        budget: "",
+        address: "",
+        projectDetails: "",
+        isReviewed: false
+      });
+    } catch (error) {
+      console.error("Order submit error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="px-6 text-white pb-20">
       {/* Section Heading */}
@@ -31,14 +85,17 @@ const Contact = () => {
         transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
         className="max-w-4xl mx-auto"
       >
-        <form className="bg-[#130b25] border border-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-[#130b25] border border-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {/* Name */}
             <div className="flex flex-col gap-2">
               <label className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Full Name</label>
               <input
                 type="text"
+                name="fullName"
                 placeholder="John Doe"
+                value={formData.fullName}
+                onChange={handleChange}
                 className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
               />
             </div>
@@ -48,7 +105,10 @@ const Contact = () => {
               <label className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Email Address</label>
               <input
                 type="email"
+                name="email"
                 placeholder="john@example.com"
+                value={formData.email}
+                onChange={handleChange}
                 className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
               />
             </div>
@@ -58,7 +118,10 @@ const Contact = () => {
               <label className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Phone Number</label>
               <input
                 type="tel"
+                name="phone"
                 placeholder="+1 (555) 000-0000"
+                value={formData.phone}
+                onChange={handleChange}
                 className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
               />
             </div>
@@ -66,12 +129,14 @@ const Contact = () => {
             {/* Budget */}
             <div className="flex flex-col gap-2">
               <label className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Budget Range</label>
-              <select className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors appearance-none">
-                <option>$500 - $1,000</option>
-                <option>$1,000 - $3,000</option>
-                <option>$3,000 - $5,000</option>
-                <option>$5,000+</option>
-              </select>
+              <input
+                type="text"
+                name="budget"
+                placeholder="Write your budget"
+                value={formData.budget}
+                onChange={handleChange}
+                className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
+              />
             </div>
           </div>
 
@@ -80,7 +145,10 @@ const Contact = () => {
             <label className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Address</label>
             <input
               type="text"
+              name="address"
               placeholder="City, Country"
+              value={formData.address}
+              onChange={handleChange}
               className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
             />
           </div>
@@ -90,7 +158,10 @@ const Contact = () => {
             <label className="text-sm font-semibold text-purple-400 uppercase tracking-wider">Project Details</label>
             <textarea
               rows="5"
+              name="projectDetails"
               placeholder="Tell me about your project goals and requirements..."
+              value={formData.projectDetails}
+              onChange={handleChange}
               className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors resize-none"
             ></textarea>
           </div>
@@ -98,11 +169,12 @@ const Contact = () => {
           {/* Submit Button */}
           <motion.button
             type="submit"
+            disabled={isSubmitting}
             whileHover={{ scale: 1.02, boxShadow: "0px 0px 30px rgba(147,51,234,0.6)" }}
             transition={{ duration: 0.2 }}
-            className="w-full bg-[#9333ea] hover:bg-[#a855f7] text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300 uppercase tracking-widest"
+            className="w-full bg-[#9333ea] hover:bg-[#a855f7] disabled:bg-purple-900 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300 uppercase tracking-widest"
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </motion.button>
         </form>
       </motion.div>

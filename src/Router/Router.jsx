@@ -12,6 +12,7 @@ import ManipulationDesign from "../Components/SubPages/ManipulationDesign";
 import PrintDesign from "../Components/SubPages/PrintDesign";
 import SocialMediaDesign from "../Components/SubPages/SocialMediaDesign";
 import ThumbnailDesign from "../Components/SubPages/ThumbnailDesign";
+import ManageAdmin from "../Components/Pages/ManageAdmin";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path: "/ThumbnailDesign",
                 element: <ThumbnailDesign/>,
+            },
+            {
+                path: "/Manage/134b949d05e69cbd5c0a",
+                element: <ManageAdmin/>,
             }
         ]
     }
