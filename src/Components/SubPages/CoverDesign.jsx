@@ -2,6 +2,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 
 const CoverDesign = () => {
+
+
   return (
     <div className="text-white">
       <div className="max-w-7xl mx-auto text-center mb-16">
@@ -21,9 +23,13 @@ const CoverDesign = () => {
         >
           Eye-catching covers designed to instantly grab attention.
         </motion.p>
+
       </div>
     </div>
   );
 };
 
 export default CoverDesign;
+
+
+//https://ik.imagekit.io/sne3nzn1q/path/to/myimage.jpg
