@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+// eslint-disable-next-line
 import { motion } from "framer-motion";
 
 const categoryOptions = [
@@ -423,7 +424,7 @@ const ManageUploads = () => {
                   );
                 })}
 
-                <div className="rounded-2xl border border-dashed border-purple-500/40 bg-[#0b0617] p-5 flex min-h-[260px]">
+                <div className="rounded-2xl border border-dashed border-purple-500/40 bg-[#0b0617] p-5 flex min-h-65">
                   <label
                     htmlFor={inputId}
                     className="flex flex-1 cursor-pointer flex-col items-center justify-center rounded-xl border border-transparent text-center transition-colors hover:border-purple-400/50"

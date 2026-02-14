@@ -97,7 +97,7 @@ const ManageOrders = () => {
             )}
 
             {!loading && !error && orders.length > 0 && (
-                <div className="max-w-7xl mx-auto columns-1 md:columns-2 xl:columns-3 gap-8 [column-fill:_balance]">
+                <div className="max-w-7xl mx-auto columns-1 md:columns-2 xl:columns-3 gap-8 [column-fill:balance]">
                     {orders.map((order, index) => (
                         <motion.div
                             key={order._id || index}

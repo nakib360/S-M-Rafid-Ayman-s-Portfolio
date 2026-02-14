@@ -1,4 +1,5 @@
 import { Outlet, NavLink } from "react-router";
+// eslint-disable-next-line
 import { motion } from "framer-motion";
 
 const navItems = [
