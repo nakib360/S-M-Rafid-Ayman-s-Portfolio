@@ -25,6 +25,7 @@ const About = () => {
                     <motion.h2
                         initial={{ y: 40, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                         transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                         className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6"
                     >
@@ -33,6 +34,7 @@ const About = () => {
                     <motion.div
                         initial={{ scaleX: 0, opacity: 0 }}
                         whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true }}
                         transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
                         className="w-24 h-1.5 bg-[#9333ea] rounded-full shadow-[0_0_15px_rgba(147,51,234,0.6)] origin-left"
                     ></motion.div>
@@ -43,6 +45,7 @@ const About = () => {
                     <motion.p
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                         transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
                         className="text-xl md:text-2xl leading-relaxed text-gray-200"
                     >
@@ -52,6 +55,7 @@ const About = () => {
                     <motion.p
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                         transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
                         className="text-lg md:text-xl leading-relaxed text-gray-400"
                     >
@@ -64,6 +68,7 @@ const About = () => {
                     <motion.h3
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                         transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
                         className="text-2xl font-bold text-[#9333ea] mb-8"
                     >
@@ -76,6 +81,7 @@ const About = () => {
                                 key={index}
                                 initial={{ y: 20, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                                 transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
                                 whileHover={{ boxShadow: "0px 8px 25px rgba(147,51,234,0.3)", transition: {duration: 0} }}
                                 className="bg-[#130b25] border border-gray-800 rounded-2xl p-6 cursor-pointer"
@@ -93,6 +99,7 @@ const About = () => {
                                     <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: skill.level }}
+          viewport={{ once: true }}
                                         transition={{ duration: 1, ease: "easeOut" }}
                                         className="bg-[#9333ea] h-full rounded-full shadow-[0_0_10px_rgba(147,51,234,0.8)]"
                                     ></motion.div>
@@ -109,3 +116,4 @@ const About = () => {
 };
 
 export default About;
+

@@ -69,6 +69,7 @@ const ManageOrders = () => {
                 <motion.h2
                     initial={{ y: 40, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                     className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight drop-shadow-[0_0_15px_rgba(192,132,252,0.8)]"
                 >
@@ -77,6 +78,7 @@ const ManageOrders = () => {
                 <motion.p
                     initial={{ y: 40, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
                     className="text-gray-400 text-lg"
                 >
@@ -103,6 +105,7 @@ const ManageOrders = () => {
                             key={order._id || index}
                             initial={{ y: 20, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: index * 0.08, ease: "easeOut" }}
                             whileHover={{
                                 y: -5,
@@ -175,3 +178,5 @@ const ManageOrders = () => {
 };
 
 export default ManageOrders;
+
+

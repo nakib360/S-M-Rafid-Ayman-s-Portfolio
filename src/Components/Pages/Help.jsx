@@ -16,6 +16,7 @@ const Help = () => {
                 <motion.h2
                     initial={{ y: 40, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.8 }}
                     className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-6"
                 >
@@ -24,6 +25,7 @@ const Help = () => {
                 <motion.p
                     initial={{ y: 40, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed"
                 >
@@ -38,6 +40,7 @@ const Help = () => {
                         key={index}
                         initial={{ y: 30, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} // stagger
                         whileHover={{
                             y: -5,
@@ -65,3 +68,4 @@ const Help = () => {
 };
 
 export default Help;
+

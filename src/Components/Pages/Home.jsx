@@ -52,7 +52,8 @@ const Home = () => {
   return (
     <div className="text-white space-y-4">
       <div className="flex flex-col-reverse md:flex-row justify-around items-center ">
-        <motion.div initial={{ x: -50, y: 50, opacity: 0 }} whileInView={{ x: 0, y: 0, opacity: 1 }} transition={{ duration: 1 }} className="md:space-y-2 text-right -mt-10 md:mt-0 md:text-left">
+        <motion.div initial={{ x: -50, y: 50, opacity: 0 }} whileInView={{ x: 0, y: 0, opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 1 }} className="md:space-y-2 text-right -mt-10 md:mt-0 md:text-left">
           <p className="text-2xl md:text-3xl lg:text-4xl text-yellow-100">Assalamu Alaikum</p>
           <p className="text-3xl md:text-4xl lg:text-5xl text-purple-600 font-bold">I am{" "}
             <div className="relative inline-block font-extrabold">
@@ -87,27 +88,32 @@ const Home = () => {
           <p className="md:text-xl lg:text-2xl">From <span className="italic text-gray-300">Chattogram, Bangladesh</span></p>
         </motion.div>
 
-        <motion.div initial={{ x: 50, y: 50, opacity: 0 }} whileInView={{ x: 0, y: 0, opacity: 1 }} transition={{ duration: 1 }} className="relative">
+        <motion.div initial={{ x: 50, y: 50, opacity: 0 }} whileInView={{ x: 0, y: 0, opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 1 }} className="relative">
           <img className="fade-middle-to-bottom" src={smRafidAymanPng} alt="S M Rafid Ayman" />
         </motion.div>
       </div>
 
       <div className="flex flex-col md:flex-row justify-around mt-20 md:mt-0 md:gap-5">
-        <motion.div initial={{ filter: "blur(20px)", opacity: 0 }} whileInView={{ filter: "blur(0px)", opacity: 1 }} transition={{ delay: 0.5 }} className="">
+        <motion.div initial={{ filter: "blur(20px)", opacity: 0 }} whileInView={{ filter: "blur(0px)", opacity: 1 }}
+          viewport={{ once: true }} transition={{ delay: 0.5 }} className="">
           <img className="rounded-2xl" src={smRafidAymanJpg} alt="S M Rafid Ayman" />
         </motion.div>
         <div className="max-w-3xl mt-20 md:space-y-4">
-          <motion.h2 initial={{ x: -3, opacity: 0 }} whileInView={{ x: 3, opacity: 1 }} transition={{ delay: 0.5 }} className="text-3xl md:text-4xl font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
+          <motion.h2 initial={{ x: -3, opacity: 0 }} whileInView={{ x: 3, opacity: 1 }}
+          viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-3xl md:text-4xl font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
             About me
           </motion.h2>
-          <motion.p initial={{ x: -3, opacity: 0 }} whileInView={{ x: 3, opacity: 1 }} transition={{ delay: 0.5 }} className=" md:text-xl">I am S M Rafid Ayman, a creative Graphic Designer with a strong focus on modern, clean, and effective visual design. Based in Chattogram, Bangladesh, I work with clients to create impactful designs that strengthen brand identity and improve digital presence. Alongside client work, I continuously refine my skills to stay aligned with current design trends and industry standards. </motion.p>
+          <motion.p initial={{ x: -3, opacity: 0 }} whileInView={{ x: 3, opacity: 1 }}
+          viewport={{ once: true }} transition={{ delay: 0.5 }} className=" md:text-xl">I am S M Rafid Ayman, a creative Graphic Designer with a strong focus on modern, clean, and effective visual design. Based in Chattogram, Bangladesh, I work with clients to create impactful designs that strengthen brand identity and improve digital presence. Alongside client work, I continuously refine my skills to stay aligned with current design trends and industry standards. </motion.p>
         </div>
       </div>
 
       <div>
         <div className="min-h-screen text-white py-16 px-4 ">
           <div className="max-w-6xl mx-auto">
-            <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }} className=" text-3xl md:text-4xl text-center font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-14">
+            <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ delay: 0.3 }} className=" text-3xl md:text-4xl text-center font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-14">
               View My Portfolio
             </motion.h2>
 
@@ -116,7 +122,8 @@ const Home = () => {
                 <motion.div
                   key={index}
                   initial={{ y: 50, opacity: 0 }} 
-                  whileInView={{ y: 0, opacity: 1 }} 
+                  whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }} 
                   transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} 
                   whileHover={{
                     y: -5,
@@ -154,3 +161,5 @@ const Home = () => {
 };
 
 export default Home;
+
+
