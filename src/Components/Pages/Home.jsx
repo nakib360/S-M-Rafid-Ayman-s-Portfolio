@@ -55,7 +55,7 @@ const Home = () => {
         <motion.div initial={{ x: -50, y: 50, opacity: 0 }} whileInView={{ x: 0, y: 0, opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 1 }} className="md:space-y-2 text-right -mt-10 md:mt-0 md:text-left">
           <p className="text-2xl md:text-3xl lg:text-4xl text-yellow-100">Assalamu Alaikum</p>
-          <p className="text-3xl md:text-4xl lg:text-5xl text-purple-600 font-bold">I am{" "}
+          <div className="text-3xl md:text-4xl lg:text-5xl text-purple-600 font-bold">I am{" "}
             <div className="relative inline-block font-extrabold">
               <motion.span
                 className="relative"
@@ -63,7 +63,7 @@ const Home = () => {
                 whileHover={{ y: [-2, 2, -1, 1, 0] }}
                 transition={{ duration: 0.3, repeat: Infinity }}
               >
-                 S M Rafid Ayman
+                S M Rafid Ayman
               </motion.span>
 
               <motion.span
@@ -84,7 +84,7 @@ const Home = () => {
                 S M Rafid Ayman
               </motion.span>
             </div>
-          </p>
+          </div>
           <p className="md:text-xl lg:text-2xl">From <span className="italic text-gray-300">Chattogram, Bangladesh</span></p>
         </motion.div>
 
@@ -101,19 +101,19 @@ const Home = () => {
         </motion.div>
         <div className="max-w-3xl mt-20 md:space-y-4">
           <motion.h2 initial={{ x: -3, opacity: 0 }} whileInView={{ x: 3, opacity: 1 }}
-          viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-3xl md:text-4xl font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
+            viewport={{ once: true }} transition={{ delay: 0.5 }} className="text-3xl md:text-4xl font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-4">
             About me
           </motion.h2>
           <motion.p initial={{ x: -3, opacity: 0 }} whileInView={{ x: 3, opacity: 1 }}
-          viewport={{ once: true }} transition={{ delay: 0.5 }} className=" md:text-xl">I am S M Rafid Ayman, a creative Graphic Designer with a strong focus on modern, clean, and effective visual design. Based in Chattogram, Bangladesh, I work with clients to create impactful designs that strengthen brand identity and improve digital presence. Alongside client work, I continuously refine my skills to stay aligned with current design trends and industry standards. </motion.p>
+            viewport={{ once: true }} transition={{ delay: 0.5 }} className=" md:text-xl">I am S M Rafid Ayman, a creative Graphic Designer with a strong focus on modern, clean, and effective visual design. Based in Chattogram, Bangladesh, I work with clients to create impactful designs that strengthen brand identity and improve digital presence. Alongside client work, I continuously refine my skills to stay aligned with current design trends and industry standards. </motion.p>
         </div>
       </div>
 
       <div>
-        <div className="min-h-screen text-white py-16 px-4 ">
+        <div className="min-h-screen text-white py-16 md:px-4 ">
           <div className="max-w-6xl mx-auto">
             <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-          viewport={{ once: true }} transition={{ delay: 0.3 }} className=" text-3xl md:text-4xl text-center font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-14">
+              viewport={{ once: true }} transition={{ delay: 0.3 }} className=" text-3xl md:text-4xl text-center font-extrabold text-[#9333ea] drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] mb-14">
               View My Portfolio
             </motion.h2>
 
@@ -121,10 +121,10 @@ const Home = () => {
               {portfolioItems.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ y: 50, opacity: 0 }} 
+                  initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }} 
-                  transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }} 
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
                   whileHover={{
                     y: -5,
                     boxShadow: "0px 8px 30px rgba(40,81,138,0.5)",
@@ -137,7 +137,7 @@ const Home = () => {
                     <span className="text-2xl text-white">{item.icon}</span>
                   </div>
 
-                  <h3  className="text-xl font-bold mb-4">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
 
                   <p className="text-gray-400 text-sm leading-relaxed mb-8 min-h-15">
                     {item.desc}

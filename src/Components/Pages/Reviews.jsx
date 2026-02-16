@@ -60,7 +60,7 @@ const Reviews = () => {
     ];
 
     return (
-        <div className="px-6 min-h-screen">
+        <div className=" md:px-6 min-h-screen">
             {/* Section Heading */}
             <div className="max-w-7xl mx-auto text-center mb-16">
                 <motion.h2

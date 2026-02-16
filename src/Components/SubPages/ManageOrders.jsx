@@ -64,7 +64,7 @@ const ManageOrders = () => {
     };
 
     return (
-        <div className="px-6 min-h-screen text-white pb-20">
+        <div className="md:px-6 min-h-screen text-white pb-20">
             <div className="max-w-7xl mx-auto text-center mb-16">
                 <motion.h2
                     initial={{ y: 40, opacity: 0 }}

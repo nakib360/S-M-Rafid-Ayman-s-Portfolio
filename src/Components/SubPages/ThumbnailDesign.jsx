@@ -23,7 +23,7 @@ const ThumbnailDesign = () => {
   }, []);
 
   return (
-    <div className="text-white px-6 pb-20">
+    <div className="text-white md:px-6 pb-20">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <motion.h2
           initial={{ y: 40, opacity: 0 }}

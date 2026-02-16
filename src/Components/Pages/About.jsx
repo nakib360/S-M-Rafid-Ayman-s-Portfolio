@@ -17,7 +17,7 @@ const About = () => {
         }
     ];
     return (
-        <div className="px-6 text-white pb-20">
+        <div className="md:px-6 text-white pb-20">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header Section */}

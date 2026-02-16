@@ -18,7 +18,7 @@ const navItems = [
 
 const ManageAdmin = () => {
   return (
-    <div className="min-h-screen text-white px-4 sm:px-6 py-6">
+    <div className="min-h-screen text-white md:px-6 py-6">
       <div className="max-w-none mx-auto">
         <div className="relative lg:pl-75">
           <motion.aside
@@ -37,10 +37,9 @@ const ManageAdmin = () => {
                   to={item.to}
                   end={item.end}
                   className={({ isActive }) =>
-                    `group flex items-center justify-between rounded-2xl border px-4 py-4 transition-all duration-300 ${
-                      isActive
-                        ? "border-purple-500/60 bg-purple-500/10 text-white shadow-[0_0_18px_rgba(147,51,234,0.25)]"
-                        : "border-transparent bg-[#0b0617] text-gray-300 hover:border-purple-500/40 hover:text-white"
+                    `group flex items-center justify-between rounded-2xl border px-4 py-4 transition-all duration-300 ${isActive
+                      ? "border-purple-500/60 bg-purple-500/10 text-white shadow-[0_0_18px_rgba(147,51,234,0.25)]"
+                      : "border-transparent bg-[#0b0617] text-gray-300 hover:border-purple-500/40 hover:text-white"
                     }`
                   }
                 >
@@ -50,14 +49,13 @@ const ManageAdmin = () => {
                       {item.description}
                     </p>
                   </div>
-                  <span className="text-xs text-purple-300">View</span>
                 </NavLink>
               ))}
             </div>
 
           </motion.aside>
 
-          <section className="min-h-[60vh]">
+          <section className="min-h-[60vh] mt-5 md:mt-0">
             <Outlet />
           </section>
         </div>

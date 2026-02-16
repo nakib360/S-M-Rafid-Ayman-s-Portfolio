@@ -10,7 +10,7 @@ const Help = () => {
         "Improving visual clarity and audience engagement."
     ];
     return (
-        <div className="px-6 text-white">
+        <div className=" md:px-6 text-white">
             {/* Section Heading */}
             <div className="max-w-7xl mx-auto text-center mb-16">
                 <motion.h2

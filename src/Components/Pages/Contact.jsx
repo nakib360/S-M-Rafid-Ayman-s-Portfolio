@@ -57,7 +57,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="px-6 text-white pb-20">
+    <div className="md:px-6 text-white pb-20">
       {/* Section Heading */}
       <div className="max-w-7xl mx-auto text-center mb-16">
         <motion.h2
@@ -122,7 +122,7 @@ const Contact = () => {
               <input
                 type="tel"
                 name="phone"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+123 456 7890"
                 value={formData.phone}
                 onChange={handleChange}
                 className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
@@ -135,7 +135,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="budget"
-                placeholder="Write your budget"
+                placeholder="min budget - max budget"
                 value={formData.budget}
                 onChange={handleChange}
                 className="bg-[#0a0516] border border-gray-800 rounded-xl px-4 py-3 text-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
