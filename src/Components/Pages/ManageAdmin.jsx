@@ -30,14 +30,14 @@ const ManageAdmin = () => {
             <p className="text-xs uppercase tracking-[0.25em] text-gray-500 mb-4">
               Management
             </p>
-            <div className="space-y-3">
+            <div className="flex justify-around items-center gap-2 md:block md:gap-0 md:space-y-3">
               {navItems.map((item) => (
                 <NavLink
                   key={item.label}
                   to={item.to}
                   end={item.end}
                   className={({ isActive }) =>
-                    `group flex items-center justify-between rounded-2xl border px-4 py-4 transition-all duration-300 ${isActive
+                    ` group flex items-center justify-between rounded-2xl border px-4 py-4 transition-all duration-300 ${isActive
                       ? "border-purple-500/60 bg-purple-500/10 text-white shadow-[0_0_18px_rgba(147,51,234,0.25)]"
                       : "border-transparent bg-[#0b0617] text-gray-300 hover:border-purple-500/40 hover:text-white"
                     }`
@@ -55,7 +55,7 @@ const ManageAdmin = () => {
 
           </motion.aside>
 
-          <section className="min-h-[60vh] mt-5 md:mt-0">
+          <section className="min-h-[60vh] mt-5 lg:mt-0">
             <Outlet />
           </section>
         </div>

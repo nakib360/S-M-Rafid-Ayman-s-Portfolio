@@ -15,11 +15,13 @@ import ThumbnailDesign from "../Components/SubPages/ThumbnailDesign";
 import ManageAdmin from "../Components/Pages/ManageAdmin";
 import ManageOrders from "../Components/SubPages/ManageOrders";
 import ManageUploads from "../Components/SubPages/ManageUploads";
+import Error from "../Components/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
+        errorElement: <Error />,
         children: [
             {
                 path: "/",
@@ -86,6 +88,10 @@ const router = createBrowserRouter([
                         element: <ManageUploads/>
                     }
                 ]
+            },
+            {
+                path: "*",
+                element: <Error />,
             }
         ]
     }

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 // eslint-disable-next-line
 import { motion } from "framer-motion";
+import { FiTrash2 } from "react-icons/fi";
 
 const categoryOptions = [
   { id: "cover", label: "Cover Design" },
@@ -121,7 +122,8 @@ const ManageUploads = () => {
   const [uploadingByCategory, setUploadingByCategory] = useState(() =>
     createInitialUploading()
   );
-  const [openMenuImageId, setOpenMenuImageId] = useState("");
+  const [deleteTarget, setDeleteTarget] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const acceptLabel = useMemo(() => "image/*", []);
 
@@ -197,12 +199,6 @@ const ManageUploads = () => {
     refreshAllCategories();
   }, []);
 
-  useEffect(() => {
-    const closeMenu = () => setOpenMenuImageId("");
-    window.addEventListener("click", closeMenu);
-    return () => window.removeEventListener("click", closeMenu);
-  }, []);
-
   const handleCategoryUpload = async (categoryId, event) => {
     const files = Array.from(event.target.files || []);
     event.target.value = "";
@@ -269,6 +265,7 @@ const ManageUploads = () => {
 
   const handleDeleteImage = async (categoryId, imageId) => {
     if (!imageId) return;
+    setIsDeleting(true);
 
     try {
       const baseUrl = import.meta.env.VITE_API_BASE_URL || "";
@@ -291,13 +288,17 @@ const ManageUploads = () => {
         message: error.message || "Delete failed.",
       });
     } finally {
-      setOpenMenuImageId("");
+      setDeleteTarget(null);
+      setIsDeleting(false);
     }
   };
 
-  const handleMenuTriggerClick = (event, menuId) => {
-    event.stopPropagation();
-    setOpenMenuImageId((previous) => (previous === menuId ? "" : menuId));
+  const openDeleteConfirm = (categoryId, image) => {
+    setDeleteTarget({
+      categoryId,
+      imageId: image.id,
+      imageName: image.name || "this image",
+    });
   };
 
   return (
@@ -377,12 +378,12 @@ const ManageUploads = () => {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+              <div className="grid grid-cols-2 xl:grid-cols-3 gap-5">
                 {images.map((image) => {
-                  const menuId = `${category.id}-${image.id}`;
+                  const imageKey = `${category.id}-${image.id}`;
                   return (
                     <motion.article
-                      key={menuId}
+                      key={imageKey}
                       initial={{ y: 16, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       viewport={{ once: true, amount: 0.25 }}
@@ -401,26 +402,12 @@ const ManageUploads = () => {
                       <div className="absolute right-3 top-3">
                         <button
                           type="button"
-                          aria-label="Image actions"
-                          onClick={(event) => handleMenuTriggerClick(event, menuId)}
-                          className="h-9 w-9 rounded-full border border-gray-700 bg-black/50 text-white text-xl leading-none hover:bg-black/70"
+                          aria-label="Delete image"
+                          onClick={() => openDeleteConfirm(category.id, image)}
+                          className="h-9 w-9 rounded-full border border-rose-400/50 bg-black/60 text-rose-300 flex items-center justify-center transition hover:bg-rose-500/20 hover:text-rose-200"
                         >
-                          ...
+                          <FiTrash2 className="text-base" />
                         </button>
-                        {openMenuImageId === menuId && (
-                          <div
-                            onClick={(event) => event.stopPropagation()}
-                            className="absolute right-0 mt-2 w-32 rounded-xl border border-gray-700 bg-[#140b28] p-2 shadow-lg"
-                          >
-                            <button
-                              type="button"
-                              onClick={() => handleDeleteImage(category.id, image.id)}
-                              className="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-300 hover:bg-rose-500/10"
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        )}
                       </div>
                     </motion.article>
                   );
@@ -458,18 +445,40 @@ const ManageUploads = () => {
           );
         })}
       </div>
+
+      {deleteTarget && (
+        <div className="fixed inset-0 z-2000 flex items-center justify-center bg-black/70 px-4">
+          <div className="w-full max-w-sm rounded-2xl border border-gray-700 bg-[#130b25] p-5 sm:p-6 shadow-2xl">
+            <h4 className="text-lg font-bold text-white">Delete image?</h4>
+            <p className="mt-2 text-sm text-gray-300">
+              Are you sure you want to delete{" "}
+              <span className="font-semibold text-white">{deleteTarget.imageName}</span>?
+            </p>
+            <div className="mt-5 flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setDeleteTarget(null)}
+                disabled={isDeleting}
+                className="rounded-lg border border-gray-600 px-4 py-2 text-sm text-gray-200 hover:bg-white/5 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  handleDeleteImage(deleteTarget.categoryId, deleteTarget.imageId)
+                }
+                disabled={isDeleting}
+                className="rounded-lg border border-rose-400/40 bg-rose-600/80 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-600 disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {isDeleting ? "Deleting..." : "Delete"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default ManageUploads;
-
-/**
- * coverdedign
- * logodesign
- * manipulation
- * print
- * social
- * thimb
- */
-
