@@ -1,0 +1,27 @@
+{
+  "name": "Fullstack Dev Environment",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "usernamehw.errorlens",
+        "streetsidesoftware.code-spell-checker",
+        "dsznajder.es7-react-js-snippets",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "xabikos.javascriptsnippets",
+        "rangav.vscode-thunder-client",
+        "mikestead.dotenv",
+        "humao.rest-client",
+        "firebase.firebase-vscode",
+        "mongodb.mongodb-vscode",
+        "wayou.vscode-todo-highlight",
+        "gruntfuggly.todo-tree",
+        "pkief.material-icon-theme"
+      ]
+    }
+  }
+}
